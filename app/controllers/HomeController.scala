@@ -22,8 +22,8 @@ class HomeController @Inject()(cc: ControllerComponents) (implicit assetsFinder:
     Ok(views.html.index("Your new application is ready."))
   }
 
-  def aymen(name:String, country:String) = Action { request =>
-    Ok(s"Hello from $country Mr/Mrs $name")
+  def aymen(name:String, country:String, address: Option[String]) = Action { request =>
+    Ok(s"Hello from $country Mr/Mrs $name ${address.getOrElse("62 rue Charles 92800 Puteaux")}")
   }
 
   def notFound = Action { request =>

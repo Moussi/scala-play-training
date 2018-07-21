@@ -4,7 +4,7 @@
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
-GET     /aymen/:country                    controllers.HomeController.aymen(name: String ?= "Moussi", country:String)
+GET     /aymen/:country                    controllers.HomeController.aymen(name: String ?= "Moussi", country:String, address: Option[String])
 GET     /notfound                      controllers.HomeController.notFound
 GET     /error                      controllers.HomeController.serverError
 GET     /status                      controllers.HomeController.status
