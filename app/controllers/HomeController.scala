@@ -41,4 +41,8 @@ class HomeController @Inject()(cc: ControllerComponents) (implicit assetsFinder:
   def redirect = Action { request =>
     Redirect("/aymen")
   }
+
+  def helloBob = Action {
+    Redirect(routes.HomeController.aymen("Malek", "Tunis", Option.empty))
+  }
 }
