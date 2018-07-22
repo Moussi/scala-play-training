@@ -1,8 +1,10 @@
 package controllers
 
-import javax.inject._
+import java.io.File
 
+import javax.inject._
 import play.api.mvc._
+
 
 /**
   * This controller creates an `Action` to handle HTTP requests to the
@@ -42,6 +44,10 @@ class HomeController @Inject()(cc: ControllerComponents)(implicit assetsFinder: 
     }.getOrElse {
       Unauthorized("Oops, you are not connected")
     }
+  }
+
+  def save = Action(parse.file(to = new File("/home/moussi/malek.pdf"))) { request =>
+    Ok("Saved the request content to " + request.body).withNewSession
   }
 
   def serverError = Action { request =>
