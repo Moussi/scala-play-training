@@ -23,7 +23,10 @@ class HomeController @Inject()(cc: ControllerComponents) (implicit assetsFinder:
   }
 
   def aymen(name:String, country:String, address: Option[String]) = Action { request =>
-    Ok(s"Hello from $country Mr/Mrs $name ${address.getOrElse("62 rue Charles 92800 Puteaux")}")
+    Ok(s"<h1>Hello from $country Mr/Mrs $name ${address.getOrElse("62 rue Charles 92800 Puteaux")}</h1>")
+      .as(HTML)
+      .withCookies(Cookie("test", "cookie"))
+      .withHeaders("tid" ->  "azqswx")
   }
 
   def notFound = Action { request =>
